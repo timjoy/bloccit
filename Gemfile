@@ -5,6 +5,7 @@ source 'https://rubygems.org'
    "https://github.com/#{repo_name}.git"
  end
 
+ 
  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
  gem 'rails', '~> 5.1.2'
 
@@ -45,3 +46,5 @@ source 'https://rubygems.org'
    gem 'rspec-rails', '~> 3.0'
    gem 'rails-controller-testing'
  end
+
+ gem 'bootstrap-sass'
