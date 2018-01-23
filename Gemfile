@@ -5,7 +5,7 @@ source 'https://rubygems.org'
    "https://github.com/#{repo_name}.git"
  end
 
- 
+
  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
  gem 'rails', '~> 5.1.2'
 
@@ -20,6 +20,7 @@ source 'https://rubygems.org'
  group :development do
    # Use sqlite3 as the development database for Active Record
    gem 'sqlite3'
+   gem 'pry-rails'
  end
 
  # Use Puma as the app server
@@ -48,3 +49,5 @@ source 'https://rubygems.org'
  end
 
  gem 'bootstrap-sass'
+
+ 
