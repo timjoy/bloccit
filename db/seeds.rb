@@ -9,6 +9,7 @@ require 'random_data'
      body:   RandomData.random_paragraph
    )
  end
+
  posts = Post.all
 
  # Create Comments
@@ -20,6 +21,13 @@ require 'random_data'
      body: RandomData.random_paragraph
    )
  end
+
+ puts"#{Post.count}"
+ Post.find_or_create_by(title: "Where's  Waldo?", body: "Waldo is in backyard")
+ puts"#{Post.count}"
+ puts"#{Comment.count}"
+ Comment.find_or_create_by(body: "Unique comment body", id: 51)
+
 
  puts "Seed finished"
  puts "#{Post.count} posts created"
