@@ -26,7 +26,8 @@ require 'random_data'
  Post.find_or_create_by(title: "Where's  Waldo?", body: "Waldo is in backyard")
  puts"#{Post.count}"
  puts"#{Comment.count}"
- Comment.find_or_create_by(body: "Unique comment body", id: 51)
+
+ Comment.find_or_create_by(body: "Unique comment body", post_id: 51)
 
 
  puts "Seed finished"
