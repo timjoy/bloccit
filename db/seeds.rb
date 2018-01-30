@@ -23,11 +23,14 @@ require 'random_data'
  end
 
  puts"#{Post.count}"
- Post.find_or_create_by(title: "Where's  Waldo?", body: "Waldo is in backyard")
+ # post = Post.sample
+
+ post = Post.find_or_create_by(title: "Where's  Waldo?", body: "Waldo is in backyard")
  puts"#{Post.count}"
  puts"#{Comment.count}"
 
- Comment.find_or_create_by(body: "Unique comment body", post_id: 51)
+ # Comment.find_or_create_by(body: "Unique comment body", post_id: 51)
+ Comment.create(post: post, body: "Unique comment body")
 
 
  puts "Seed finished"
