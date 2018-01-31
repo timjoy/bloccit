@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # get 'advertisement/create'
 
   resources :posts, :advertisement
-
+  # resources :advertisement
   get 'about' => 'welcome#about'
 
   get 'welcome/contact'
@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   get 'welcome/posts'
 
   root 'welcome#index'
+
+  # resources :advertisement
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -32,13 +32,14 @@ require 'random_data'
  # Comment.find_or_create_by(body: "Unique comment body", post_id: 51)
  Comment.create(post: post, body: "Unique comment body")
 
+ # create advertisement seed data
  50.times do
    Advertisement.create!(
      title:  RandomData.random_sentence,
      body:   RandomData.random_paragraph
    )
  end
-
+ # intersperse the seed data with the posts
  i=0
  @posts.each_with_index do |post, index|
    i+=1
