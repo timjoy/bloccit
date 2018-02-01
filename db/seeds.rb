@@ -29,6 +29,25 @@ require 'random_data'
  puts"#{Post.count}"
  puts"#{Comment.count}"
 
+ 10.times do
+   Advertisement.create!(
+     title:  RandomData.random_sentence,
+     copy:   RandomData.random_paragraph
+   )
+ end
+
+ # ads = Advertisement.all
+ #
+ # i = 1
+ # posts.each do |post|
+ #   if (post.id % 5) == 0
+ #     # posts.insert(ads.index(i))
+ #     posts.insert(ads[i])
+ #     i += 1
+ #   else Post
+ #   end
+ # end
+
  # Comment.find_or_create_by(body: "Unique comment body", post_id: 51)
  Comment.create(post: post, body: "Unique comment body")
 
