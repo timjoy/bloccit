@@ -1,7 +1,6 @@
-class AdvertisementController < ApplicationController
+class AdvertisementsController < ApplicationController
   def index
-    @advertisement = Advertisement.all
-
+    @advertisements = Advertisement.all
   end
 
   def show
@@ -13,18 +12,20 @@ class AdvertisementController < ApplicationController
   end
 
   def create
-    @advertisement = advertisement.new
+    @advertisement = Advertisement.new
     @advertisement.title = params[:advertisement][:title]
-    @advertisement.body = params[:advertisement][:body]
+    @advertisement.copy = params[:advertisement][:copy]
+    @advertisement.price = params[:advertisement][:price]
 
     if @advertisement.save
-      flash[:notice] = "advertisement was saved."
+      flash[:notice] = "Advertisement was saved."
       redirect_to @advertisement
     else
       flash.now[:alert] = "There was an error saving the advertisement. Please try again."
       render :new
     end
-    # connect to a (as yet undefined) method that allows an
-    # advertiser to insert their advertisement
+  end
+
+  def edit
   end
 end

@@ -1,10 +1,11 @@
-<h1>New Advertisement</h1>
-<div class="advertisement">
+<h1>New Advertisements</h1>
+<div class="row">
+  <div class="col-md-4">
     <p>Guidelines for advertisements</p>
     <ul>
-      <li>1. Don't offend/insult people.</li>
-      <li>2. Make it fun; don't be boring.</li>
+      <li>Try not to offend/insult.</li>
     </ul>
+  </div>
   <div class="col-md-8">
     <%= form_for @advertisement do |f| %>
       <div class="form-group">
@@ -14,8 +15,8 @@
         <%= f.text_field :title, class: 'form-control', placeholder: "Enter advertisement title" %>
       </div>
       <div class="form-group">
-        <%= f.label :body %>
-        <%= f.text_area :body, rows: 11, class: 'form-control', placeholder: "Enter advertisement body" %>
+        <%= f.label :copy %>
+        <%= f.text_area :copy, rows: 8, class: 'form-control', placeholder: "Enter advertisement body" %>
       </div>
       <div class="form-group">
 
@@ -24,4 +25,3 @@
     <% end %>
   </div>
 </div>
-<!-- use #sanitize from ActionView::Helpers::SanitizeHelper to clean up copy/pasted ads -->
