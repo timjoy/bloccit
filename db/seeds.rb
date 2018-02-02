@@ -54,17 +54,17 @@ require 'random_data'
  50.times do
    Advertisement.create!(
      title:  RandomData.random_sentence,
-     body:   RandomData.random_paragraph
+     copy:   RandomData.random_paragraph
    )
  end
 
- i=0
- @posts.each_with_index do |post, index|
-   i+=1
-   if index % 5 == 0
-     @posts.insert(Advertisement(i))
-   end
- end
+ # i=0
+ # @posts.each_with_index do |post, index|
+ #   i+=1
+ #   if index % 5 == 0
+ #     @posts.insert(Advertisement(i))
+ #   end
+ # end
 
  puts "Seed finished"
  puts "#{Post.count} posts created"

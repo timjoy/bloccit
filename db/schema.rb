@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180131144120) do
-=======
 ActiveRecord::Schema.define(version: 20180201044344) do
->>>>>>> checkpoint-18-assignment-redo
 
   create_table "advertisements", force: :cascade do |t|
     t.string "title"
