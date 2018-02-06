@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all
+    # @posts.each_with_index do |post, index|
+    # end
   end
 
   def show

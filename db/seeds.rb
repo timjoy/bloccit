@@ -2,13 +2,20 @@ require 'random_data'
 
  # Create Posts
  50.times do
- # #1
    Post.create!(
- # #2
      title:  RandomData.random_sentence,
      body:   RandomData.random_paragraph
    )
  end
+
+ 50.times do
+   Question.create!(
+     title:  RandomData.random_sentence,
+     body:   RandomData.random_paragraph
+     resolved: false
+   )
+ end
+
 
  posts = Post.all
 
@@ -51,12 +58,7 @@ require 'random_data'
  # Comment.find_or_create_by(body: "Unique comment body", post_id: 51)
  Comment.create(post: post, body: "Unique comment body")
 
- 50.times do
-   Advertisement.create!(
-     title:  RandomData.random_sentence,
-     copy:   RandomData.random_paragraph
-   )
- end
+
 
  # i=0
  # @posts.each_with_index do |post, index|
