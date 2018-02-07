@@ -12,7 +12,7 @@ require 'random_data'
    Question.create!(
      title:  RandomData.random_sentence,
      body:   RandomData.random_paragraph
-     resolved: false
+     # resolved: false
    )
  end
 

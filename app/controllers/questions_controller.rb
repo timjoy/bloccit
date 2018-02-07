@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all
-    # @posts.each_with_index do |post, index|
+    # @questions.each_with_index do |question, index|
     # end
   end
 
@@ -10,9 +10,22 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @question = Question.new
   end
 
   def create
+
+    @question = question.new
+    @question.title = params[:question][:title]
+    @question.body = params[:question][:body]
+    # @question.resolved = false
+    if @question.save
+      flash[:notice] = "question was saved."
+      redirect_to @question
+    else
+      flash.now[:alert] = "There was an error saving the question. Please try again."
+      render :new
+    end
   end
 
   def edit
