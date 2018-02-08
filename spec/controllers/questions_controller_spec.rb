@@ -53,18 +53,63 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe "QUESTION create" do
     it "increases the number of Question by 1" do
-      expect{ question :create, params: { question: { title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: false } } }.to change(Question,:count).by(1)
+      expect{ post :create, params: { question: { title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: false } } }.to change(Question,:count).by(1)
     end
 
     it "assigns the new question to @question" do
-      question :create, params: { question: { title: RandomData.random_sentence, body: RandomData.random_paragraph } }
+      post :create, params: { question: { title: RandomData.random_sentence, body: RandomData.random_paragraph } }
       expect(assigns(:question)).to eq Question.last
     end
 
     it "redirects to the new question" do
-      question :create, params: { question: { title: RandomData.random_sentence, body: RandomData.random_paragraph } }
+      post :create, params: { question: { title: RandomData.random_sentence, body: RandomData.random_paragraph } }
       expect(response).to redirect_to Question.last
     end
+  end
 
+  describe "GET edit" do
+    it "returns http success" do
+      get :edit, params: { id: my_question.id }
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the #edit view" do
+      get :edit, params: { id: my_question.id }
+# #1
+      expect(response).to render_template :edit
+    end
+
+# #2
+    it "assigns question to be updated to @post" do
+      get :edit, params: { id: my_question.id }
+
+      question_instance = assigns(:question)
+
+      expect(question_instance.id).to eq my_question.id
+      expect(question_instance.title).to eq my_question.title
+      expect(question_instance.body).to eq my_question.body
+    end
+  end
+
+  describe "PUT update" do
+    it "updates question with expected attributes" do
+      new_title = RandomData.random_sentence
+      new_body = RandomData.random_paragraph
+
+      put :update, params: { id: my_question.id, post: {title: new_title, body: new_body } }
+      # updated_question = my_question
+      updated_question = assigns(:question)
+      expect(updated_question.id).to eq my_question.id
+      expect(updated_question.title).to eq new_title
+      expect(updated_question.body).to eq new_body
+    end
+
+    it "redirects to the updated question" do
+      new_title = RandomData.random_sentence
+      new_body = RandomData.random_paragraph
+
+      put :update, params: { id: my_question.id, post: {title: new_title, body: new_body } }
+      expect(response).to redirect_to my_question
+    end
   end
 end
