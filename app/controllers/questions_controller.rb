@@ -41,12 +41,6 @@ class QuestionsController < ApplicationController
     @question.body = params[:question][:body]
 
     @question.resolved = params[:question][:resolved]
-    # @question.update_attributes(params[:question][:resolved])
-
-    # if @question.resolved =
-    #   assigns[:question][:resolved].to eq(true)
-    # else @question
-    # end     # @question.resolved = params[:resolved]
 
     if @question.save
       flash[:notice] = "Question was updated."
