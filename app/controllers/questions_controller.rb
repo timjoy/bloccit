@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     @question = Question.new
     @question.title = params[:question][:title]
     @question.body = params[:question][:body]
-    # @question.resolved = false
+    @question.resolved = false
     if @question.save
       flash[:notice] = "question was saved."
       redirect_to @question
@@ -37,10 +37,16 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     puts :question
     puts @question
-    # @question.title = params[:question][:title]
     @question.title = params[:question][:title]
-    # @question.body = params[:question][:body]
     @question.body = params[:question][:body]
+
+    @question.resolved = params[:question][:resolved]
+    # @question.update_attributes(params[:question][:resolved])
+
+    # if @question.resolved =
+    #   assigns[:question][:resolved].to eq(true)
+    # else @question
+    # end     # @question.resolved = params[:resolved]
 
     if @question.save
       flash[:notice] = "Question was updated."
