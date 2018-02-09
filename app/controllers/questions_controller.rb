@@ -35,12 +35,10 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    puts :question
-    puts @question
-    # @question.title = params[:question][:title]
+
     @question.title = params[:question][:title]
-    # @question.body = params[:question][:body]
     @question.body = params[:question][:body]
+    @question.resolved = params[:question][:body]
 
     if @question.save
       flash[:notice] = "Question was updated."

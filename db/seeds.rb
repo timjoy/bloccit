@@ -11,8 +11,8 @@ require 'random_data'
  50.times do
    Question.create!(
      title:  RandomData.random_sentence,
-     body:   RandomData.random_paragraph
-     # resolved: false
+     body:   RandomData.random_paragraph,
+     resolved: false
    )
  end
 
