@@ -24,6 +24,7 @@ require 'random_data'
      price: RandomData.random_price
    )
  end
+ 
 
  50.times do
    Question.create!(
@@ -86,6 +87,7 @@ require 'random_data'
  # end
 
  puts "Seed finished"
+ puts"#{SponsoredPost.count} sponsored posts created"
  puts "#{Topic.count} topics created"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"

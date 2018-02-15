@@ -80,7 +80,6 @@ let(:my_post) { my_topic.posts.create!(title: RandomData.random_sentence, body: 
       expect(response).to render_template :edit
     end
 
-# #2
     it "assigns post to be updated to @post" do
       get :edit, params: { topic_id: my_topic.id, id: my_post.id }
       post_instance = assigns(:post)

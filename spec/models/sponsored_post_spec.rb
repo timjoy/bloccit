@@ -7,13 +7,12 @@ RSpec.describe SponsoredPost, type: :model do
   let(:body) { RandomData.random_paragraph }
   let(:price) { RandomData.random_price}
   let(:topic) { Topic.create!(name: name, description: description) }
-  let(:sponsored_post) { topic.sponsored_post.create!(title: title, body: body, price: price) }
-  # let(:my_topic) { Topic.create!(name:  RandomData.random_sentence, description: RandomData.random_paragraph) }
-  # let(:sponsoredpost) { my_topic.sponsoredposts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_price) }
+  let(:sponsored_post) { topic.sponsored_posts.create!(title: title, body: body, price: price) }
+
   it { is_expected.to belong_to(:topic) }
 
   describe "attributes" do
-    it "has a title and body attribute" do
+    it "has a title, body, and price attributes" do
       expect(sponsored_post).to have_attributes(title: title, body: body, price: price)
     end
   end
