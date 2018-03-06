@@ -23,6 +23,20 @@ RSpec.describe User, type: :model do
       end
     end
 
+    describe "attributes" do
+      it "has a capitalized first name" do
+        expect (user.name.split(" ")[0]).to eq(user.name.split(" ")[0].capitalize)
+        # puts "(user.name.split(" ")[0])"
+        # expect(user.namesplitcap[0]).to_be capitalize
+        # expect(user.name[0]).to_be capitalize
+      end
+      it "has a capitalized second name, if it is present" do
+        expect (user.name.split(" ")[1]).to eq(user.name.split(" ")[1].capitalize)
+        # expect(user.namesplitcap[1]).to_be capitalize
+      end
+    end
+
+
     describe "invalid user" do
       let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
       let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
